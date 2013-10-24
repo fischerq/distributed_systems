@@ -187,8 +187,13 @@ public class Application {
 		}
 		catch(NumberFormatException e)
 		{
-			log.error("Bad port number");
+			log.error("Malformed port number");
 			return;
+		}
+		
+		if(port <0 || port >  65535)
+		{
+			log.error("Invalid port "+port);
 		}
 		
 		try {
